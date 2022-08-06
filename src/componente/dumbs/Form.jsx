@@ -6,7 +6,7 @@ import s from "./css/Form.module.css"
 export function validate(Actividad) {
   let errors = {};
   const UrlRegular = /https:\/\/([/|.\w|\s|-])+\.(?:jpg|png)/g
-  if (Actividad.nombre.length < 3) {
+  if (!Actividad.nombre) {
     errors.nombre = 'Nombre mayor a 3 caracteres';
   }
   if (!Actividad.dificultad) {
