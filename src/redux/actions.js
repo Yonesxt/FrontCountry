@@ -12,7 +12,7 @@ export const BUSQUEDA ="BUSCAR"
 
 export function getCountry(){
   return async function (dispatch) {
-    return axios.get("https://polar-sands-01232.herokuapp.com/country")
+    return fetch("https://polar-sands-01232.herokuapp.com/country")
     .then((respuesta) => respuesta.json())
     .then((respuestaJson) =>
       dispatch({ type: GET_COUNTRY, payload: respuestaJson })
@@ -50,7 +50,7 @@ export function filterActivity(payload){
 }
 export function getActividad(){
   return async function (dispatch) {
-    return axios.get("https://polar-sands-01232.herokuapp.com/actividad")
+    return fetch("https://polar-sands-01232.herokuapp.com/actividad")
     .then((respuesta) => respuesta.json())
     .then((respuestaJson) =>
       dispatch({ type: GET_ACTIVIDAD, payload: respuestaJson })
