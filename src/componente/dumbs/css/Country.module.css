@@ -1,0 +1,52 @@
+.card {
+  display: grid;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.3);
+  margin: 10px 5px 15px 25px;
+  width: 200px;
+  height: 300px;
+  border-color: black;
+  border: solid;
+  border-color: black;
+  border-radius: 20px;
+
+}
+
+.container {
+  position: relative;
+}
+
+.image {
+  height: 100px;
+  width: 100%;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: rgb(0, 153, 204);
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}

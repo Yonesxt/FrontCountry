@@ -1,0 +1,106 @@
+.contenedoractividad{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+.contenedor{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  border: 2px solid;
+  border-radius: 15px;
+  background: rgba(255,255,255,0.5);
+  width: 930px;
+}
+.btn {
+  color: #0099CC;
+  align-items: flex-end;
+  background: transparent;
+  border: 2px solid #0099CC;
+  border-radius: 6px;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.btn {
+  background-color: rgba(255, 255, 255, 0.205);
+  color: black;
+  border: 2px solid #008CBA;
+}
+
+.btn:hover {
+
+  background-color: #0099CC;
+  background-color: rgba(red, green, blue, 0.205);
+}
+.crear{
+  display: inline-flex;
+  flex-direction: column;
+  border: 2px solid;
+  border-radius: 15px;
+  background: rgba(250,250,250,0.55);
+  height: 250px;
+  width: 450px;
+  justify-content: flex-start;
+  padding: 15px;
+  margin: 80px;
+}
+.actividad{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+.actividad1{
+  border: 2px solid;
+    border-radius: 15px;
+    background: rgba(0,0,0,0.3);
+    margin-right: 10px;
+}
+.imagactividad{
+  width:250px ;
+  height:250px;
+  border-radius: 15px;
+}
+.imgciudad{
+  display: flex;
+  width: 600px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+@media screen and (max-width:700px)  {
+  .crear {
+    width: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 80px 0px 0px 0px;
+  }
+  .contenedor{
+    width: 95%;
+  }
+  .actividad{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  .imgciudad{
+    width: 95%;
+  }
+}
