@@ -34,7 +34,7 @@ export function Order(payload){
 }
 export function GetName(name){
   return async (dispatch) =>{
-      return await axios.get(`http://polar-sands-01232.herokuapp.com/country?nombre=` + name)
+      return await axios.get(`https://polar-sands-01232.herokuapp.com/country?nombre=` + name)
       .then(res => dispatch({
           type: BUSQUEDA,
           payload: res.data
@@ -50,7 +50,7 @@ export function filterActivity(payload){
 }
 export function getActividad(){
   return async function (dispatch) {
-    return fetch("http://polar-sands-01232.herokuapp.com/actividad")
+    return fetch("https://polar-sands-01232.herokuapp.com/actividad")
     .then((respuesta) => respuesta.json())
     .then((respuestaJson) =>
       dispatch({ type: GET_ACTIVIDAD, payload: respuestaJson })
@@ -59,7 +59,7 @@ export function getActividad(){
 }
 export function removeActividad(id){
 return async (dispatch) => {
-  return axios.delete("http://polar-sands-01232.herokuapp.com/actividad/delete/"+id)
+  return axios.delete("https://polar-sands-01232.herokuapp.com/actividad/delete/"+id)
  .then(res => dispatch({
      type: REMOVE_ACTIVIDAD, 
   }))
@@ -67,7 +67,7 @@ return async (dispatch) => {
 }
   export function addActividad(Actividad){
     return async function (dispatch){
-      const data = await axios.post("http://polar-sands-01232.herokuapp.com/actividad/",(Actividad))
+      const data = await axios.post("https://polar-sands-01232.herokuapp.com/actividad/",(Actividad))
       return data;
   }
 

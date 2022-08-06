@@ -18,7 +18,7 @@ class Detail extends React.Component {
   componentDidMount() {
     // hacer algo antes del renderizado
     const { id } = this.props.match.params;
-    fetch("http://polar-sands-01232.herokuapp.com/country/" + id)
+    fetch("https://polar-sands-01232.herokuapp.com/country/" + id)
       .then((respuesta) => respuesta.json())
       .then((respuestaJson) => this.setState({ detalle: respuestaJson }));
 
