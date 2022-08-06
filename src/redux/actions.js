@@ -12,7 +12,7 @@ export const BUSQUEDA ="BUSCAR"
 
 export function getCountry(){
   return async function (dispatch) {
-    return fetch("http://polar-sands-01232.herokuapp.com/country")
+    return fetch("https://polar-sands-01232.herokuapp.com/country")
     .then((respuesta) => respuesta.json())
     .then((respuestaJson) =>
       dispatch({ type: GET_COUNTRY, payload: respuestaJson })
