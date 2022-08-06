@@ -12,12 +12,7 @@ export const BUSQUEDA ="BUSCAR"
 
 export function getCountry(){
   return async function (dispatch) {
-    return fetch("https://polar-sands-01232.herokuapp.com/country",{
-      'mode': 'cors',
-      'headers': {
-          'Access-Control-Allow-Origin': '*',
-      }
-  })
+    return axios.get("https://polar-sands-01232.herokuapp.com/country")
     .then((respuesta) => respuesta.json())
     .then((respuestaJson) =>
       dispatch({ type: GET_COUNTRY, payload: respuestaJson })
@@ -39,12 +34,7 @@ export function Order(payload){
 }
 export function GetName(name){
   return async (dispatch) =>{
-      return await axios.get(`https://polar-sands-01232.herokuapp.com/country?nombre=` + name,{
-        'mode': 'cors',
-        'headers': {
-            'Access-Control-Allow-Origin': '*',
-        }
-    })
+      return await axios.get(`https://polar-sands-01232.herokuapp.com/country?nombre=` + name)
       .then(res => dispatch({
           type: BUSQUEDA,
           payload: res.data
@@ -60,12 +50,7 @@ export function filterActivity(payload){
 }
 export function getActividad(){
   return async function (dispatch) {
-    return fetch("https://polar-sands-01232.herokuapp.com/actividad",{
-      'mode': 'cors',
-      'headers': {
-          'Access-Control-Allow-Origin': '*',
-      }
-  })
+    return axios.get("https://polar-sands-01232.herokuapp.com/actividad")
     .then((respuesta) => respuesta.json())
     .then((respuestaJson) =>
       dispatch({ type: GET_ACTIVIDAD, payload: respuestaJson })
@@ -74,12 +59,7 @@ export function getActividad(){
 }
 export function removeActividad(id){
 return async (dispatch) => {
-  return axios.delete("https://polar-sands-01232.herokuapp.com/actividad/delete/"+id,{
-    'mode': 'cors',
-    'headers': {
-        'Access-Control-Allow-Origin': '*',
-    }
-})
+  return axios.delete("https://polar-sands-01232.herokuapp.com/actividad/delete/"+id)
  .then(res => dispatch({
      type: REMOVE_ACTIVIDAD, 
   }))
@@ -87,12 +67,7 @@ return async (dispatch) => {
 }
   export function addActividad(Actividad){
     return async function (dispatch){
-      const data = await axios.post("https://polar-sands-01232.herokuapp.com/actividad/",(Actividad),{
-        'mode': 'cors',
-        'headers': {
-            'Access-Control-Allow-Origin': '*',
-        }
-    })
+      const data = await axios.post("https://polar-sands-01232.herokuapp.com/actividad/",(Actividad))
       return data;
   }
 

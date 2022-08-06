@@ -107,7 +107,7 @@ const Form = () => {
               onChange={handleInputChange}
               className={s.input}
               value={Actividad.name}
-              pattern="[A-Za-z0-9_-]{3,15}"
+              pattern="[A-Za-z0-9_-]{3}"
               required="required"
               type="text" name='nombre' />
 
