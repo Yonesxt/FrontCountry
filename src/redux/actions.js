@@ -70,5 +70,5 @@ return async (dispatch) => {
       const {data} = await axios.post("https://polar-sands-01232.herokuapp.com/actividad/",(Actividad))
       return data;
   }
-
+ 
 }
