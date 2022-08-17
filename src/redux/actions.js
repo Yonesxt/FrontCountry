@@ -10,14 +10,11 @@ export const FILTRAR_ACTIVIDAD ="FILTRAR ACTIVIDAD"
 export const BUSQUEDA ="BUSCAR"
 //ACTIONS CREATORS
 
-export function getCountry(){
+export function  getCountry(){
   return async function (dispatch) {
-    return fetch("https://polar-sands-01232.herokuapp.com/country")
-    .then((respuesta) => respuesta.json())
-    .then((respuestaJson) =>
-      dispatch({ type: GET_COUNTRY, payload: respuestaJson })
-    );
-  
+    let json = await axios("https://polar-sands-01232.herokuapp.com/country")
+    const data = await json.data;
+    return  dispatch({ type: GET_COUNTRY, payload: data })
   }
 }
 export function filterContinent(payload){
@@ -34,12 +31,16 @@ export function Order(payload){
 }
 export function GetName(name){
   return async (dispatch) =>{
-      return await axios.get(`https://polar-sands-01232.herokuapp.com/country?nombre=` + name)
-      .then(res => dispatch({
-          type: BUSQUEDA,
-          payload: res.data
-      }))
-      .catch(error=> window.alert(`Error: ${name} no se encuentra en la base de datos`))
+    try {
+      let json = await axios.get(`https://polar-sands-01232.herokuapp.com/country?nombre=` + name)
+      const data = await json.data;
+      return dispatch({
+        type: BUSQUEDA,
+        payload: data
+    })
+    } catch (error) {
+      return window.alert(`Error: ${name} no se encuentra en la base de datos`)
+    }
   }
 }
 export function filterActivity(payload){
@@ -50,24 +51,23 @@ export function filterActivity(payload){
 }
 export function getActividad(){
   return async function (dispatch) {
-    return fetch("https://polar-sands-01232.herokuapp.com/actividad")
-    .then((respuesta) => respuesta.json())
-    .then((respuestaJson) =>
-      dispatch({ type: GET_ACTIVIDAD, payload: respuestaJson })
-    );
+    const json = await axios("https://polar-sands-01232.herokuapp.com/actividad")
+    const data = json.data
+    return dispatch({ type: GET_ACTIVIDAD, payload: data })
+   
   }
 }
 export function removeActividad(id){
 return async (dispatch) => {
-  return axios.delete("https://polar-sands-01232.herokuapp.com/actividad/delete/"+id)
- .then(res => dispatch({
+  await axios.delete("https://polar-sands-01232.herokuapp.com/actividad/delete/"+id)
+  return dispatch({
      type: REMOVE_ACTIVIDAD, 
-  }))
+  })
 }
 }
   export function addActividad(Actividad){
     return async function (dispatch){
-      const data = await axios.post("https://polar-sands-01232.herokuapp.com/actividad/",(Actividad))
+      const {data} = await axios.post("https://polar-sands-01232.herokuapp.com/actividad/",(Actividad))
       return data;
   }
 
