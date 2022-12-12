@@ -12,7 +12,7 @@ export const BUSQUEDA ="BUSCAR"
 
 export function  getCountry(){
   return async function (dispatch) {
-    let json = await axios("https://polar-sands-01232.herokuapp.com/country")
+    let json = await axios("https://country-back.onrender.com/country")
     const data = await json.data;
     return  dispatch({ type: GET_COUNTRY, payload: data })
   }
@@ -32,7 +32,7 @@ export function Order(payload){
 export function GetName(name){
   return async (dispatch) =>{
     try {
-      let json = await axios.get(`https://polar-sands-01232.herokuapp.com/country?nombre=` + name)
+      let json = await axios.get(`https://country-back.onrender.com/country?nombre=` + name)
       const data = await json.data;
       return dispatch({
         type: BUSQUEDA,
@@ -51,7 +51,7 @@ export function filterActivity(payload){
 }
 export function getActividad(){
   return async function (dispatch) {
-    const json = await axios("https://polar-sands-01232.herokuapp.com/actividad")
+    const json = await axios("https://country-back.onrender.com/actividad")
     const data = json.data
     return dispatch({ type: GET_ACTIVIDAD, payload: data })
    
@@ -59,7 +59,7 @@ export function getActividad(){
 }
 export function removeActividad(id){
 return async (dispatch) => {
-  await axios.delete("https://polar-sands-01232.herokuapp.com/actividad/delete/"+id)
+  await axios.delete("https://country-back.onrender.com/actividad/delete/"+id)
   return dispatch({
      type: REMOVE_ACTIVIDAD, 
   })
@@ -67,7 +67,7 @@ return async (dispatch) => {
 }
   export function addActividad(Actividad){
     return async function (dispatch){
-      const {data} = await axios.post("https://polar-sands-01232.herokuapp.com/actividad/",(Actividad))
+      const {data} = await axios.post("https://country-back.onrender.com/actividad/",(Actividad))
       return data;
   }
  
