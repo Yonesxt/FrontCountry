@@ -18,7 +18,7 @@ class Detail extends React.Component {
   componentDidMount() {
     // hacer algo antes del renderizado
     const { id } = this.props.match.params;
-    fetch("https://country-back.onrender.com/country" + id, {
+    fetch("https://country-back.onrender.com/country/" + id, {
     method: 'GET',
     headers: new Headers({
         'Content-Type': 'application/json',
